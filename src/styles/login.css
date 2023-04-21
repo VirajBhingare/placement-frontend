@@ -1,0 +1,19 @@
+.login {
+  width: 100%;
+  /* min-height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login img {
+  width: 100%;
+  height: 500px;
+}
+
+.login .avatar {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background-color: rgba(128, 0, 70, 0.783);
+}
