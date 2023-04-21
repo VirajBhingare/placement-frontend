@@ -3,6 +3,7 @@ import { Button, Card, TextField } from "@material-ui/core";
 import { DatePicker, Space } from "antd";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { HOST } from "../../App";
 const { RangePicker } = DatePicker;
 const AddTestForm = () => {
   const [testValues, setTestValues] = useState({
@@ -23,7 +24,7 @@ const AddTestForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await axios
-      .post("http://localhost:8080/api/v1/admin/create-test", testValues)
+      .post(`${HOST}/api/v1/admin/create-test`, testValues)
       .then((res) => {
         toast.success(res.data.message);
       });

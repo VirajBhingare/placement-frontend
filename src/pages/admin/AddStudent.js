@@ -3,10 +3,12 @@ import { TextField, Button, Avatar, Card } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { HOST } from "../../App";
+
 const AddStudent = () => {
   const onFinish = (values) => {
     axios
-      .post("http://localhost:8080/api/v1/admin/add-student", values)
+      .post(`${HOST}/api/v1/admin/add-student`, values)
       .then((res) => {
         toast.success(res.data.message);
       })

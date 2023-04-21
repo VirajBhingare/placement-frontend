@@ -4,6 +4,7 @@ import axios from "axios";
 import { message } from "antd";
 import Comments from "./Comments";
 import { useAuth } from "../context/AuthContext";
+import { HOST } from "../App";
 const Home = () => {
   const [question, setQuestion] = useState("");
   const [auth] = useAuth();
@@ -11,7 +12,7 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:8080/api/v1/add-query", {
+      .post(`${HOST}/api/v1/add-query`, {
         question,
         user: user,
       })

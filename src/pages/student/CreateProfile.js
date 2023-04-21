@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import moment from "moment";
 import { useAuth } from "../../context/AuthContext";
 import { toast } from "react-toastify";
+import { HOST } from "../../App";
 
 const CreateProfile = () => {
   const [details, setDetails] = useState();
@@ -24,9 +25,7 @@ const CreateProfile = () => {
   useEffect(() => {
     const getprofiledetails = async () => {
       await axios
-        .get(
-          `http://localhost:8080/api/v1/user/get-profile-details/${params.id}`
-        )
+        .get(`${HOST}/api/v1/user/get-profile-details/${params.id}`)
         .then((res) => {
           // form.setFieldsValue(res.data[0]);
 

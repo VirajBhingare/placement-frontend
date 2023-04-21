@@ -14,6 +14,7 @@ import { message } from "antd";
 import GetAppOutlinedIcon from "@material-ui/icons/GetAppOutlined";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { HOST } from "../../App";
 var emailarray = [];
 
 const columns = [
@@ -79,7 +80,7 @@ const AllStudentsTable = () => {
   const getAllStudents = async () => {
     // setLoading(true);
     await axios
-      .get("http://localhost:8080/api/v1/admin/get-allstudents/")
+      .get(`${HOST}/api/v1/admin/get-allstudents/`)
       .then((res) => {
         console.log(res.data);
         setRows(res.data.allstudents);

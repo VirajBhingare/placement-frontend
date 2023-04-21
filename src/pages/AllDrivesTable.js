@@ -21,6 +21,7 @@ import { message } from "antd";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
+import { HOST } from "../App";
 function CustomToolbar() {
   return (
     <GridToolbarContainer>
@@ -38,7 +39,7 @@ const AllDrivesTable = () => {
   function ApplyButton({ driveId, applied, userId }) {
     const handleClick = async () => {
       await axios
-        .put(`http://localhost:8080/api/v1/user/apply-drive/${driveId}`, {
+        .put(`${HOST}/api/v1/user/apply-drive/${driveId}`, {
           userId,
         })
         .then((res) => {

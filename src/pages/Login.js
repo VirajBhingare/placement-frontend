@@ -7,6 +7,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import "../styles/login.css";
 import { useAuth } from "../context/AuthContext";
 import { useEffect, useState } from "react";
+import { HOST } from "../App";
+
 const Login = () => {
   const navigate = useNavigate();
 
@@ -17,7 +19,7 @@ const Login = () => {
     const { email, password } = values;
     // dispatch(setLoading(true));
     await axios
-      .post("http://localhost:8080/api/v1/auth/login", values)
+      .post(`${HOST}/api/v1/auth/login`, values)
       .then((res) => {
         localStorage.setItem(
           "authToken",

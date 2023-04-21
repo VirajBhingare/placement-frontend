@@ -9,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Close as CloseIcon } from "@material-ui/icons";
 import { toast } from "react-toastify";
+import { HOST } from "../../App";
 function CustomToolbar({
   selectedRows,
   setSelectedRows,
@@ -35,10 +36,11 @@ function CustomToolbar({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post(
-      "http://localhost:8080/api/v1/hr/place-students",
-      { driveId: driveId, studentIds: selectedRows, Package: details.Package }
-    );
+    const response = await axios.post(`${HOST}/api/v1/hr/place-students`, {
+      driveId: driveId,
+      studentIds: selectedRows,
+      Package: details.Package,
+    });
     toast.success(response.data.message);
     handleClose();
     setSelectedRows([]);

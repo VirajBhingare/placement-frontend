@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Comment from "./Comment";
 import Replies from "./Replies";
+import { HOST } from "../App";
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
@@ -9,7 +10,7 @@ const Comments = () => {
   useEffect(() => {
     const getAllComments = async () => {
       await axios
-        .get("http://localhost:8080/api/v1/get-all-comments")
+        .get(`${HOST}/api/v1/get-all-comments`)
         .then((res) => {
           setComments(res.data);
         })

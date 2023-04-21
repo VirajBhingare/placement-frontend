@@ -8,13 +8,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import axios from "axios";
+import { HOST } from "../App";
 
 const Replies = ({ commentId }) => {
   const [replies, setReplies] = useState([]);
   useEffect(() => {
     const getAllReplies = async () => {
       await axios
-        .get(`http://localhost:8080/api/v1/get-all-replies/${commentId}`)
+        .get(`${HOST}/api/v1/get-all-replies/${commentId}`)
         .then((res) => {
           setReplies(res.data.replies);
         })

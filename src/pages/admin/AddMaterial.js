@@ -5,11 +5,13 @@ import FileBase64 from "react-file-base64";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { HOST } from "../../App";
+
 const AddMaterial = () => {
   const [material, setMaterial] = useState("");
   const onFinish = (values) => {
     axios
-      .post("http://localhost:8080/api/v1/admin/add-placement-material", {
+      .post(`${HOST}/api/v1/admin/add-placement-material`, {
         ...values,
         material,
       })

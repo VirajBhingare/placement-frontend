@@ -4,6 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import Chart from "react-apexcharts";
 import { Card } from "@material-ui/core";
 import { useAuth } from "../../context/AuthContext";
+import { HOST } from "../../App";
 const columns = [
   { field: "name", headerName: "Name", width: 200 },
   { field: "email", headerName: "Email", width: 250 },
@@ -20,11 +21,9 @@ const AdminDashboard = () => {
   const [pieChartData, setPieChartData] = useState([]);
   useEffect(() => {
     const getAllPlaced = async () => {
-      await axios
-        .get("http://localhost:8080/api/v1/admin/all-placed-student")
-        .then((res) => {
-          setPlaced(res.data);
-        });
+      await axios.get(`${HOST}/api/v1/admin/all-placed-student`).then((res) => {
+        setPlaced(res.data);
+      });
     };
     getAllPlaced();
   }, []);
