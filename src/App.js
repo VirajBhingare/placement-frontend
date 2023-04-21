@@ -30,6 +30,9 @@ import JobsPosted from "./pages/hr/JobsPosted";
 import ParticularDriveTable from "./pages/hr/ParticularDriveTable";
 import ViewTest from "./pages/student/ViewTest";
 import ViewMaterials from "./pages/student/ViewMaterials";
+
+export const HOST = process.env.REACT_APP_SERVER_URL;
+
 const App = () => {
   return (
     <>

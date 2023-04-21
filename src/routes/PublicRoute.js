@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { HOST } from "../App";
+
 const PublicRoute = ({ children }) => {
   const [user, setUser] = useState(null);
   useEffect(() => {
@@ -8,7 +10,7 @@ const PublicRoute = ({ children }) => {
       ? setUser(JSON.parse(localStorage.getItem("authToken"))?.user)
       : setUser("");
   }, [user]);
-  return user ? <Navigate to={"/dashboard"} /> : children;
+  return user ? <Navigate to={`${HOST}/dashboard`} /> : children;
 };
 
 export default PublicRoute;

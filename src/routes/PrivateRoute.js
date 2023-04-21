@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import { HOST } from "../App";
+
 const PrivateRoute = ({ children }) => {
   const navigate = useNavigate();
   const [ok, setOk] = useState(false);
   useEffect(() => {
     const checkAuth = async () => {
-      const res = await axios.get("/api/v1/auth/check-auth", {
+      const res = await axios.get(`${HOST}/api/v1/auth/check-auth`, {
         headers: {
           Authorization: JSON.parse(localStorage.getItem("authToken"))?.token,
         },
