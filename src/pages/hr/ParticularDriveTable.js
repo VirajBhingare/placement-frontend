@@ -121,7 +121,7 @@ const ParticularDriveTable = () => {
   useEffect(() => {
     const getDrive = async () => {
       await axios
-        .get(`http://localhost:8080/api/v1/hr/get-partcular-drive/${Id}`)
+        .get(`${HOST}/api/v1/hr/get-partcular-drive/${Id}`)
         .then((res) => {
           setDriveApplicants(res.data.applicants);
           setCompanyName(res.data.companyName);

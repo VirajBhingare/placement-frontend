@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 import { Button, Card, Modal } from "@material-ui/core";
 import FileViewer from "react-file-viewer";
+import { HOST } from "../../App";
 
 const ViewMaterials = () => {
   const [materials, setMaterials] = useState([]);
@@ -19,7 +20,7 @@ const ViewMaterials = () => {
   useEffect(() => {
     const fetchMaterials = async () => {
       const response = await axios.get(
-        "http://localhost:8080/api/v1/user/get-all-materials/"
+        `${HOST}/api/v1/user/get-all-materials/`
       );
       setMaterials(response.data);
     };

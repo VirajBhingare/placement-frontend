@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Typography, Button, Link } from "@material-ui/core";
 import moment from "moment";
+import { HOST } from "../../App";
 const ViewTest = () => {
   const [tests, setTests] = useState([]);
   useEffect(() => {
     const getAllTests = async () => {
-      await axios
-        .get("http://localhost:8080/api/v1/user/get-all-tests")
-        .then((res) => {
-          setTests(res.data);
-        });
+      await axios.get(`${HOST}/api/v1/user/get-all-tests`).then((res) => {
+        setTests(res.data);
+      });
     };
     getAllTests();
   }, []);

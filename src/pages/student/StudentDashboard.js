@@ -3,17 +3,16 @@ import { Paper } from "@material-ui/core";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import { DataGrid } from "@mui/x-data-grid";
+import { HOST } from "../../App";
 const StudentDashboard = () => {
   const [{ user }] = useAuth();
   const [profile, setProfile] = useState({});
   const [applied, setApplied] = useState([]);
   useEffect(() => {
-    axios
-      .get(`http://localhost:8080/api/v1/user/get-profile-url/${user._id}`)
-      .then((res) => {
-        setProfile(res.data[0]);
-        setApplied(res.data[0].drivesApplied);
-      });
+    axios.get(`${HOST}/api/v1/user/get-profile-url/${user._id}`).then((res) => {
+      setProfile(res.data[0]);
+      setApplied(res.data[0].drivesApplied);
+    });
   }, []);
 
   const columns = [

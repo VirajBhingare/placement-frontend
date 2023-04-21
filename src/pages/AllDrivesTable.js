@@ -62,9 +62,7 @@ const AllDrivesTable = () => {
 
   const handleApply = async () => {
     await axios
-      .get(
-        `http://localhost:8080/api/v1/user/get-all-applied-drives/${user._id}`
-      )
+      .get(`${HOST}/api/v1/user/get-all-applied-drives/${user._id}`)
       .then((res) => {
         console.log(res.data);
         setAppliedDrives(res.data);
@@ -76,7 +74,7 @@ const AllDrivesTable = () => {
   useEffect(() => {
     const alldrives = async () => {
       await axios
-        .get("http://localhost:8080/api/v1/user/get-all-drives")
+        .get(`${HOST}/api/v1/user/get-all-drives`)
         .then((res) => {
           setRows(res.data);
         });
